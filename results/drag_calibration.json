@@ -1,0 +1,38 @@
+{
+  "beta_optimum_ns": 0.24806732635825146,
+  "detuning_optimum_ghz": -3.17394541254296e-06,
+  "error_optimum": 3.0270624888806275e-05,
+  "leakage_optimum": 3.0207333064691255e-05,
+  "beta_measured_ns": 0.24783683473389345,
+  "beta_measured_err_ns": 0.01575755686538442,
+  "beta_analytic_phase_ns": 0.24114385316953837,
+  "error_at_measured_beta": 3.725043318236754e-05,
+  "repetitions": [
+    1,
+    4,
+    12
+  ],
+  "shots": 2048,
+  "chain": [
+    {
+      "stage": "nominal $A$",
+      "error": 0.009275856818171335
+    },
+    {
+      "stage": "Rabi $A_\\pi$",
+      "error": 0.008620807791212659
+    },
+    {
+      "stage": "$+\\ \\beta=-1/2\\alpha$",
+      "error": 4.380852804697355e-05
+    },
+    {
+      "stage": "$+\\ $measured $\\beta$",
+      "error": 3.725043318236754e-05
+    },
+    {
+      "stage": "$+\\ $joint $(\\beta,\\delta)$",
+      "error": 3.0270624888806275e-05
+    }
+  ]
+}

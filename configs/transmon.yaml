@@ -1,0 +1,36 @@
+# Device and experiment configuration for the pulse-level calibration study.
+#
+# Parameters are representative of a fixed-frequency transmon on a
+# cloud-accessible superconducting processor (Koch2007, Krantz2019).
+# Frequencies are ordinary frequencies in GHz; times are in ns.
+
+device:
+  qubit_frequency: 5.0        # nu_q, |0> -> |1> transition [GHz]
+  anharmonicity: -0.33        # alpha = nu_12 - nu_01 [GHz]
+  drive_strength: 0.35        # r, Rabi rate at unit envelope amplitude [GHz].
+                              # The Hamiltonian depends on r and the envelope
+                              # only through their product, so r merely sets how
+                              # much DAC range a calibrated pi pulse consumes
+                              # (~25% here); every error figure is unchanged.
+  n_levels: 4                 # truncation. 3 is the minimum that shows leakage
+                              # and is within 0.3% for the DRAG pulse, but a
+                              # GRAPE pulse at 1e-9 needs |3>: re-simulating it
+                              # with 3 levels reports 1e-6. See
+                              # results/validation.json and results/grape.json.
+  dt: 0.2222222222222222      # AWG sample period [ns] (1 / 4.5 GS/s)
+
+pulse:
+  duration: 48                # gate length in samples -> 10.67 ns
+  sigma_ratio: 0.25           # sigma = sigma_ratio * duration (2-sigma truncation)
+  amp_guess: 0.25             # starting point for the amplitude sweep
+
+measurement:
+  shots: 2048                 # shots per circuit for simulated readout
+  seed: 20250726              # master RNG seed (all randomness derives from it)
+
+grape:
+  n_slices: 48                # piecewise-constant control slices
+  max_amp: 1.0                # |envelope| bound on each quadrature
+  smoothness: 2.0e-3          # weight of the finite-difference roughness penalty
+  maxiter: 400
+  n_restarts: 6

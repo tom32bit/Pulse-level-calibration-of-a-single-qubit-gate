@@ -1,0 +1,11 @@
+# Versions this study was produced with. Lower bounds in pyproject.toml are
+# looser; pin here to reproduce the figures exactly. Sampled results are
+# seed-determined everywhere; GRAPE follows the optimiser's iterate path and
+# can differ in the last digits across BLAS builds.
+numpy==1.26.4
+scipy==1.15.2
+matplotlib==3.10.3
+PyYAML==6.0.2
+qiskit==0.46.3
+qiskit-dynamics==0.5.1
+pytest==8.0.2
